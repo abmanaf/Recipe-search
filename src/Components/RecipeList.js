@@ -23,7 +23,7 @@ const RecipeList = ({ recipes }) => {
         >
         */}
         {recipes.map((recipe) => (
-          <div key={recipe.id} className="container">
+          <div className="container" key={recipe.id}>
             <li className="recipe-list">
               <p>
                 <img src={recipe.image} alt="baba" />{" "}

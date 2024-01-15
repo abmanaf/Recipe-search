@@ -11,25 +11,29 @@ const API_ID = "56ffbfc8";
 function App() {
   const [recipes, setRecipes] = useState([]);
   const [selectedRecipe, setSelectedRecipe] = useState(null);
-
+  /*
   useEffect(() => {
     // Initial search with a default term
-    handleSearch("food");
+    handleSearch("peneer");
   }, []);
-
+*/
   const handleSearch = async (searchTerm) => {
-    try {
-      const response = await axios.get(
-        `https://api.edamam.com/search?q=${searchTerm}&app_id=${API_ID}&app_key=${API_KEY}`
-      );
-      //const data = response.json()
-      // Extracting the hits array from the response
+    const response = await axios.get(
+      `https://api.edamam.com/search?q=${searchTerm}&app_id=${API_ID}&app_key=${API_KEY}`
+    );
+    console.log(response);
+
+    //const data = response.json()
+    // Extracting the hits array from the response
+    /*
+      try {
       const data = response.data.hits.map((hit) => hit.recipe);
       setRecipes(data);
       setSelectedRecipe(null);
     } catch (error) {
       console.error("Error fetching recipes:", error);
     }
+    */
   };
 
   return (

@@ -8,14 +8,16 @@ const SearchBar = ({ onSearch, setRecipes }) => {
   const handleSearch = () => {
     onSearch(searchTerm);
   };
+  /*
   const handleSearchInput = (e) => {
     clearTimeout(timeOutId);
-    const timeOut = setTimeout(() => setRecipes(e.target.value), 500);
+    const timeOut = setTimeout(() => onSearch(e.target.value), 500);
     setTimeoutId(timeOut);
-  };
+  };\*/
+
   return (
     <div>
-      <input type="text" onChange={handleSearchInput} />
+      <input type="text" onChange={(e) => setSearchTerm(e.target.value)} />
       <button onClick={handleSearch}>Search</button>
     </div>
   );
