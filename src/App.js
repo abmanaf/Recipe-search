@@ -1,20 +1,20 @@
-// src/App.js
 import React, { useEffect, useState } from "react";
 import SearchBar from "./Components/SearchBar";
 import RecipeList from "./Components/RecipeList";
-import RecipeDetails from "./Components/RecipeDetails";
+import RecipeDetails from "./Components/RecipeDetails"; // Corrected import
+
 import axios from "axios";
 
 const API_KEY = "952c04f967531094e270f27d5a14e484";
 const API_ID = "56ffbfc8";
 
-function App() {
+function App({ setShow }) {
   const [recipes, setRecipes] = useState([]);
   const [selectedRecipe, setSelectedRecipe] = useState(null);
 
   useEffect(() => {
     // Initial search with a default term
-    handleSearch("egg");
+    handleSearch("food");
   }, []);
 
   const handleSearch = async (searchTerm) => {
@@ -36,7 +36,18 @@ function App() {
     <div>
       <SearchBar onSearch={handleSearch} setRecipes={setRecipes} />
       <RecipeList recipes={recipes} setSelectedRecipe={setSelectedRecipe} />
-      {selectedRecipe && <RecipeDetails recipe={selectedRecipe} />}
+      {selectedRecipe && (
+        <RecipeDetails
+          recipes={recipes}
+          recipe={selectedRecipe}
+          setSelectedRecipe={setSelectedRecipe}
+          setShow={setShow}
+        />
+      )}
+      {/*
+      {selectedRecipe && (
+      )}
+       */}
     </div>
   );
 }
