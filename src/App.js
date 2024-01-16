@@ -35,7 +35,7 @@ function App() {
   return (
     <div>
       <SearchBar onSearch={handleSearch} setRecipes={setRecipes} />
-      <RecipeList recipes={recipes} />
+      <RecipeList recipes={recipes} setSelectedRecipe={setSelectedRecipe} />
       {selectedRecipe && <RecipeDetails recipe={selectedRecipe} />}
     </div>
   );
