@@ -34,7 +34,7 @@ const RecipeDetails = ({ recipe, setSelectedRecipe, setShow }) => {
               recipe.ingredients.map((ingredient) => (
                 <tr key={ingredient.text}>
                   <td>{ingredient.text}</td>
-                  <td>{ingredient.weight.toFixed(2)}</td>
+                  <td>{ingredient.weight.toFixed(2)}Kg</td>
                 </tr>
               ))}
           </tbody>
