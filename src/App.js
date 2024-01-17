@@ -1,7 +1,8 @@
+// src/App.js
 import React, { useEffect, useState } from "react";
 import SearchBar from "./Components/SearchBar";
 import RecipeList from "./Components/RecipeList";
-import RecipeDetails from "./Components/RecipeDetails"; // Corrected import
+import RecipeDetails from "./Components/RecipeDetails";
 
 import axios from "axios";
 
@@ -11,6 +12,7 @@ const API_ID = "56ffbfc8";
 function App({ setShow }) {
   const [recipes, setRecipes] = useState([]);
   const [selectedRecipe, setSelectedRecipe] = useState(null);
+  const [recipeNotFound, setRecipeNotFound] = useState(false);
 
   useEffect(() => {
     // Initial search with a default term
@@ -18,24 +20,39 @@ function App({ setShow }) {
   }, []);
 
   const handleSearch = async (searchTerm) => {
+    if (searchTerm.trim() === "") {
+      window.alert("Input required");
+      return;
+    }
+
     try {
       const response = await axios.get(
         `https://api.edamam.com/search?q=${searchTerm}&app_id=${API_ID}&app_key=${API_KEY}&number=30`
       );
+
       // Extracting the hits array from the response
       const data = response.data.hits.map((hit) => hit.recipe);
-      console.log(data);
-      setRecipes(data);
-      setSelectedRecipe(null);
-    } catch (error) {
-      console.error("Error fetching recipes:", error);
+
+      if (data.length === 0) {
+        setRecipeNotFound(true);
+      } else {
+        setRecipeNotFound(false);
+        setRecipes(data);
+        setSelectedRecipe(null);
+      }
+    } catch (err) {
+      console.error(err);
     }
   };
 
   return (
     <div>
-      <SearchBar onSearch={handleSearch} setRecipes={setRecipes} />
-      <RecipeList recipes={recipes} setSelectedRecipe={setSelectedRecipe} />
+      <SearchBar onSearch={handleSearch} />
+      {recipeNotFound ? (
+        <p>Recipe not found</p>
+      ) : (
+        <RecipeList recipes={recipes} setSelectedRecipe={setSelectedRecipe} />
+      )}
       {selectedRecipe && (
         <RecipeDetails
           recipes={recipes}
@@ -44,28 +61,8 @@ function App({ setShow }) {
           setShow={setShow}
         />
       )}
-      {/*
-      {selectedRecipe && (
-      )}
-       */}
     </div>
   );
 }
 
 export default App;
-
-/*
-  const handleSearch = async (searchTerm) => {
-    //const API_KEY = process.env.REACT_APP_API_KEY;
-    //const BASE_URL = "https://api.spoonacular.com/recipes/complexSearch";
-
-    const response = await fetch(
-      `https://api.edamam.com/search?q=${searchTerm}&app_id=${API_ID}&app_key=${API_KEY}`
-      //`${BASE_URL}?apiKey=bf011ab8b3fc4488ac759b1a306e51da&numer=9`
-    );
-    const data = await response.json();
-    console.log(data);
-    setRecipes(data.hits);
-    setSelectedRecipe(null);
-  };
-  */
