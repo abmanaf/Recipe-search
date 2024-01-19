@@ -22,8 +22,8 @@ const RecipeDetails = ({ recipe, setSelectedRecipe, setShow }) => {
         <h2>{recipe.label}</h2>
       </DialogTitle>
       <DialogContent>
-        <table className="table">
-          <thead>
+        <table className="table table-bordered">
+          <thead className="table-dark">
             <tr>
               <th>Ingredients</th>
               <th>Weight</th>
