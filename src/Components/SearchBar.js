@@ -26,7 +26,7 @@ const SearchBar = ({ onSearch }) => {
         </li>
         {/*<StyledDiv>        </StyledDiv> */}
 
-        <li>recipe</li>
+        <li>Recipes</li>
         <div class="search-container">
           <input
             type="text"
