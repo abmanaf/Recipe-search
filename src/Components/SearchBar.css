@@ -1,3 +1,4 @@
+/* Existing styles */
 * {
   box-sizing: border-box;
 }
@@ -10,6 +11,10 @@ body {
 .topnav {
   overflow: hidden;
   background-color: #e9e9e9;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000; /* Ensure it's on top of other elements */
 }
 
 .topnav li {
@@ -17,19 +22,9 @@ body {
   display: block;
   color: black;
   text-align: center;
-  padding: 14px 16px;
+  padding: 14px 2px;
   text-decoration: none;
   font-size: 17px;
-}
-
-.topnav li:hover {
-  background-color: #ddd;
-  color: black;
-}
-
-.topnav li.active {
-  background-color: #2196f3;
-  color: white;
 }
 
 .topnav .search-container {
@@ -58,6 +53,20 @@ body {
   background: #ccc;
 }
 
+.activ img {
+  border: none;
+  width: 40px;
+  height: auto;
+  border-radius: 50%;
+}
+
+/* Adjusted styles */
+/* Add some padding to the body to make space for the fixed navbar */
+body {
+  padding-top: 60px; /* Adjust the value as needed */
+}
+
+/* Adjust the styles for small screens 
 @media screen and (max-width: 600px) {
   .topnav .search-container {
     float: none;
@@ -76,7 +85,7 @@ body {
     border: 1px solid #ccc;
   }
 }
-/*
+
 .search-image {
   padding: 10px 20px;
   border-radius: 25px;
@@ -85,9 +94,3 @@ body {
   background-color: white;
 }
 */
-img {
-  border: 1px solid black;
-  width: 155px;
-  height: 125px;
-  border-radius: 50%;
-}
