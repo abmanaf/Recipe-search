@@ -1,8 +1,14 @@
 // src/components/SearchBar.js
 import React, { useState } from "react";
 import "./SearchBar.css";
-import search from "./Assets/search.png";
 import "font-awesome/css/font-awesome.min.css";
+import recipeLog from "./Assets/recipeLog.png";
+//import styled from "styled-components";
+
+//const StyledDiv = styled.div`
+//font-family: "Sofia", sans-serif;
+/* Add other styles as needed */
+//`;
 
 const SearchBar = ({ onSearch }) => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -15,14 +21,17 @@ const SearchBar = ({ onSearch }) => {
   return (
     <div>
       <div class="topnav">
-        <li class="active" href="#home">
-          recipe.Search
+        <li class="activ" href="#home">
+          <img src={recipeLog} alt="recipeLog" />
         </li>
+        {/*<StyledDiv>        </StyledDiv> */}
+
+        <li>recipe</li>
         <div class="search-container">
           <input
             type="text"
             value={searchTerm}
-            placeholder="Search.."
+            placeholder="Search recipe"
             name="search"
             onChange={(e) => setSearchTerm(e.target.value)}
           />
