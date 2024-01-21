@@ -30,7 +30,7 @@ function RecipeDetail({
       <Dialog open={show} onClose={handleClose}>
         <>
           <DialogTitle id="alert-dialog-slide-title">
-            Ingredients for {/*selectedRecipe.label */}
+            Ingredients for
           </DialogTitle>
           <DialogContent className="container-fluid">
             <table className="table table-bordered">
