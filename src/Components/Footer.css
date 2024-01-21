@@ -239,7 +239,6 @@ a {
   border-radius: 50%;
 }
 
-/* Media Query For different screens */
 @media (min-width: 320px) and (max-width: 479px) {
   /* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
   .footer-content {
