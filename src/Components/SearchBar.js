@@ -1,14 +1,7 @@
-// src/components/SearchBar.js
 import React, { useState } from "react";
 import "./SearchBar.css";
 import "font-awesome/css/font-awesome.min.css";
 import recipeLog from "./Assets/recipeLog.png";
-//import styled from "styled-components";
-
-//const StyledDiv = styled.div`
-//font-family: "Sofia", sans-serif;
-/* Add other styles as needed */
-//`;
 
 const SearchBar = ({ onSearch }) => {
   const [searchTerm, setSearchTerm] = useState("");
