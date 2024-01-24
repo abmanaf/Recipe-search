@@ -13,7 +13,7 @@ body {
   position: fixed;
   width: 100%;
   top: 0;
-  z-index: 1000; /* Ensure it's on top of other elements */
+  z-index: 1000;
 }
 
 .topnav li {
@@ -59,9 +59,8 @@ body {
   border-radius: 50%;
 }
 
-/* Add some padding to the body to make space for the fixed navbar */
 body {
-  padding-top: 60px; /* Adjust the value as needed */
+  padding-top: 60px;
 }
 
 /* Adjust the styles for small screens 
